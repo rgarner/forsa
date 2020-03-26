@@ -1,0 +1,22 @@
+@font-face {
+  font-family: 'Polaris Book';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Polaris Book'), local('Polaris-Book'), font-url('Polaris-Book.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Polaris Bold';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Polaris Bold'), local('Polaris-Bold'), font-url('Polaris-Bold.woff2') format('woff2');
+}
+
+article.content {
+  h1, h2, h3, h4, h5, h6, strong {
+    font-family: 'Polaris Bold', 'Helvetica', 'Arial Black', sans-serif;
+    font-weight: 700;
+  }
+}

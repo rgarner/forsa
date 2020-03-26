@@ -31,5 +31,8 @@ module Forsa
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Add fonts to the asset pipeline
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
   end
 end
