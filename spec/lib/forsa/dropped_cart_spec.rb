@@ -39,6 +39,29 @@ RSpec.describe Forsa::DroppedCart do
       end
     end
 
+    context 'there are two applications over 24h old from created_at' \
+            'with the same email and one of them is complete' do
+      include ActiveSupport::Testing::TimeHelpers
+
+      let!(:dropped_application) do
+        create :membership_application, :step_about_you, email: 'dupe@example.com', created_at: 25.hours.ago
+      end
+
+      before do
+        create :membership_application, :step_declaration, email: 'dupe@example.com', created_at: 24.hours.ago
+
+        dropped_cart.subscribe_dropped_applications
+      end
+
+      it 'does not subscribe people who have already completed' do
+        expect(fake_gibbon).not_to have_received(:lists)
+      end
+
+      it 'records dropped_cart_processed_at' do
+        expect(dropped_application.reload.dropped_cart_processed_at).to be_an(ActiveSupport::TimeWithZone)
+      end
+    end
+
     context 'there are no applications over 24h old from created_at' do
       before do
         create :membership_application, :step_about_you
@@ -51,17 +74,17 @@ RSpec.describe Forsa::DroppedCart do
     end
 
     context 'there are bad email addresses that would 400' do
+      let!(:bad_email) { create :membership_application, :abandoned, :bad_email }
+
       before do
-        create :membership_application, :abandoned, :bad_email
         allow(fake_gibbon).to receive(:lists).and_raise(Gibbon::MailChimpError, 'the server responded with status 400')
-        expect(dropped_cart.dropped_applications.count).to eql(1)
 
         dropped_cart.subscribe_dropped_applications
       end
 
       it 'logs the error and will not attempt to send again' do
         expect(logger).to have_received(:error).with(an_instance_of(Gibbon::MailChimpError))
-        expect(dropped_cart.dropped_applications.count).to eql(0)
+        expect(bad_email.reload.dropped_cart_processed_at).not_to be_nil
       end
     end
   end
