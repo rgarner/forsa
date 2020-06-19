@@ -1,11 +1,10 @@
-/*
-  From a given textarea, insert an input[type=text] before it and
-  wire it up to a Google places autocomplete to search for address_components
-  in country 'ie' only.
+require('./jquery.autoaddress.js')
 
-  Looks for a data-type attr which is passed directly to
-  google.maps.places.Autocomplete types. Used to target only establishments
-  when searching workplace address.
+/*
+  From a given textarea, insert a div.auto-address-root before it
+  and call the autoaddress setup on that root.
+
+  Looks for a data-type attr which is passed to autoaddress configuration.
  */
 class AddressAutocomplete {
   constructor(textarea) {
@@ -32,37 +31,39 @@ class AddressAutocomplete {
     return _manualLink
   }
 
+
   get input() {
-    if(this._input) {
-      return this._input
+    if(!this._input) {
+      this._input = $(this.autoAddressRoot).find('input')
     }
 
-    const input = document.createElement('input');
-    input.setAttribute('type', 'text');
-    this.textarea.parentNode.insertBefore(input, this.textarea);
-    this.textarea.parentNode.insertBefore(this.manualLink, this.textarea);
-
-    input.addEventListener('keydown', function(event){
-      if(event.keyCode === 13) {
-        event.preventDefault()
-        return false
-      }
-    })
-
-    this._input = input
-    return input
+    return this._input
   }
 
-  attachPlacesAutocomplete() {
-    this.autocomplete = new google.maps.places.Autocomplete(
-      this.input,
-      {
-        types: this.types,
-        componentRestrictions: { country: 'ie' }
-      }
-    )
-    this.autocomplete.setFields(['address_components'])
-    google.maps.event.addListener(this.autocomplete, 'place_changed', this.placeChanged.bind(this));
+  get autoAddressRoot() {
+    if(this._autoAddressRoot) {
+      return this._autoAddressRoot
+    }
+
+    const root = document.createElement('div');
+    root.setAttribute('class', 'auto-address-root')
+
+    this.textarea.parentNode.insertBefore(root, this.textarea);
+    this.textarea.parentNode.insertBefore(this.manualLink, this.textarea);
+
+    this._autoAddressRoot = root
+    return root
+  }
+
+  attachAutoAddressAutocomplete() {
+    $(this.autoAddressRoot).AutoAddress({
+      key: process.env.AUTOADDRESS_KEY,
+      vanityMode: true,
+      addressProfile: "Demo5LineV2",
+      optionsLimit: -1,
+
+      onSearchCompleted: (data) => this.placeChanged(data),
+    })
 
     this.setVisibilitiesFromValue();
   }
@@ -86,23 +87,22 @@ class AddressAutocomplete {
     return ['geocode'];
   }
 
-  placeChanged() {
-    this.textarea.value = this.input.value.replace(/, /g, "\r\n").replace('\r\nIreland', '')
-    this.textarea.style.display = 'block'
+  placeChanged(data) {
+    const addressWithPostcode = data.vanityAddress.concat(data.postcode)
+    this.textarea.value = addressWithPostcode.join("\r\n")
     this.input.value = null
+    this.setVisibilitiesFromValue()
     this.textarea.focus()
   }
 
   static create(textarea) {
     let autocomplete = new AddressAutocomplete(textarea)
-    autocomplete.attachPlacesAutocomplete()
+    autocomplete.attachAutoAddressAutocomplete()
   }
 
   static setup() {
-    google.maps.event.addDomListener(window, 'load', function () {
-      document.querySelectorAll('.address-autocomplete')
-        .forEach(element => AddressAutocomplete.create(element))
-    });
+    document.querySelectorAll('.address-autocomplete')
+      .forEach(element => AddressAutocomplete.create(element))
   }
 }
 

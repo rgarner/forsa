@@ -12,9 +12,10 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_MAPS_API_KEY']}" %>
+    <link href="https://api.autoaddress.ie/2.0/control/css/autoaddress.min.css" rel="stylesheet"/>
     <%= stylesheet_link_tag "application" %>
     <%= javascript_pack_tag "application", 'data-turbolinks-track' => 'reload' %>
+
 
     <%= favicon_link_tag 'apple-touch-icon.png', sizes: '180x180', rel: 'apple-touch-icon', type: 'image/png'  %>
     <%= favicon_link_tag 'favicon-32x32.png', sizes: '32x32', type: 'image/png'  %>
