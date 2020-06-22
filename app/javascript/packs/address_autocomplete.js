@@ -79,14 +79,6 @@ class AddressAutocomplete {
     }
   }
 
-  get types() {
-    if(this.textarea.dataset.type) {
-      return this.textarea.dataset.type.split(' ')
-    }
-
-    return ['geocode'];
-  }
-
   placeChanged(data) {
     const addressWithPostcode = data.vanityAddress.concat(data.postcode)
     this.textarea.value = addressWithPostcode.join("\r\n")
