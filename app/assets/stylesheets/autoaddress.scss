@@ -140,6 +140,7 @@ $aa-control-hover-color:        #f6f6f6;
 }
 
 .autoaddress-control .autoaddress-options-msg.success {
+  display: none;
   background: $aa-msg-success-background;
   border: 1px solid $aa-msg-success;
   color: $aa-dark-gray;
