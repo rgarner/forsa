@@ -1,0 +1,475 @@
+.autoaddress-control {
+  max-width: 650px;
+  margin: 10px 0;
+  font-size: 15px;
+  color: #777c89;
+  font-family: inherit;
+  position: relative;
+  line-height: normal;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box
+}
+
+.autoaddress-control .f-right {
+  float: right
+}
+
+.autoaddress-control .f-left {
+  float: left
+}
+
+.autoaddress-control input[type=text]::-ms-clear {
+  display: none
+}
+
+.autoaddress-control > .autoaddress-text-box {
+  outline: 0;
+  border: 0;
+  border: 1px solid #dedede;
+  border-radius: 3px 0 0 3px;
+  line-height: normal;
+  line-height: 52px \9;
+  height: 55px;
+  width: 80%;
+  box-sizing: border-box;
+  background: #fff;
+  font-size: 16px;
+  color: #666;
+  margin: 0;
+  padding: 0 10px;
+  float: left
+}
+
+.autoaddress-control > .autoaddress-button {
+  background-color: #0893D2;
+  border: 1px solid #0893D2;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: normal;
+  height: 55px;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 0 4px 4px 0;
+  width: 20%;
+  margin: 0;
+  clear: right;
+  position: relative;
+  box-sizing: border-box
+}
+
+.autoaddress-button:focus, .autoaddress-control .autoaddress-button:hover {
+  box-shadow: 0 0 1px 1px #ccc
+}
+
+.autoaddress-control .btn-hide-text {
+  font-size: 0 !important;
+  box-shadow: 0 0 1px 1px #ccc !important
+}
+
+.autoaddress-control .autoaddress-options-msg .autoaddress-close-msg {
+  float: right;
+  margin: 4px 5px 0;
+  background: url(../images/close-msg.png) no-repeat;
+  width: 10px;
+  height: 10px
+}
+
+.autoaddress-control .autoaddress-options-msg.error, .autoaddress-control .autoaddress-options-msg.info, .autoaddress-control .autoaddress-options-msg.success, .autoaddress-control .autoaddress-options-msg.warning {
+  padding: 10px 15px 9px;
+  position: relative;
+  font-size: 16px;
+  border-radius: 5px;
+  clear: both;
+  margin: 15px 0
+}
+
+.autoaddress-control .autoaddress-options-msg.error span, .autoaddress-control .autoaddress-options-msg.info span, .autoaddress-control .autoaddress-options-msg.success span, .autoaddress-control .autoaddress-options-msg.warning span {
+  padding: 0;
+  border: 0;
+  width: 24px;
+  height: 24px;
+  margin-left: -49px;
+  margin-top: -3px;
+  float: left;
+  background: url(../images/success-msg-icon-circle.png) no-repeat
+}
+
+.autoaddress-control .autoaddress-options-msg.warning span {
+  background: url(../images/alert-msg-icon-circle.png) no-repeat
+}
+
+.autoaddress-control .autoaddress-options-msg.error span {
+  background: url(../images/error-msg-icon-circle.png) no-repeat
+}
+
+.autoaddress-control .autoaddress-options-msg.info span {
+  background: url(../images/alert-msg-icon-circle.png) no-repeat
+}
+
+.autoaddress-control .autoaddress-options-msg.success {
+  background: #e5fae3;
+  border: 1px solid #449D44;
+  color: #333;
+  border-left: 45px solid #449D44
+}
+
+.autoaddress-control .autoaddress-options-msg.warning {
+  background: #fee7d1;
+  border: 1px solid #ff7f00;
+  border-left: 45px solid #ff7f00;
+  color: #333
+}
+
+.autoaddress-control .autoaddress-options-msg.error {
+  background: #fbc8c8;
+  border: 1px solid #c00;
+  border-left: 45px solid #c00;
+  color: #333
+}
+
+.autoaddress-control .autoaddress-options-msg.info {
+  background: #d9edf7;
+  border: 1px solid #31708f;
+  border-left: 45px solid #31708f;
+  color: #333
+}
+
+.autoaddress-control .autoaddress-autocomplete {
+  border: 1px solid #ccc;
+  position: absolute;
+  z-index: 1;
+  width: 99.8%;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, .3)
+}
+
+.autoaddress-control .autoaddress-autocomplete .autoaddress-suggestion {
+  white-space: normal;
+  border-bottom: solid 1px #ccc;
+  padding: 10px;
+  font-weight: 400
+}
+
+.autoaddress-control .autoaddress-autocomplete .autoaddress-suggestion:last-child {
+  border-bottom: none
+}
+
+.autoaddress-control .autoaddress-autocomplete .autoaddress-suggestion.selected, .autoaddress-control .autoaddress-autocomplete .autoaddress-suggestion:hover {
+  text-decoration: none;
+  outline: 0;
+  cursor: pointer
+}
+
+.autoaddress-control .autoaddress-autocomplete .autoaddress-suggestion.autoaddress-searchTerm:after {
+  content: ' - Address search';
+  background: url(../images/auto-search-icon.png) right 3px no-repeat;
+  padding-right: 20px
+}
+
+.autoaddress-control .autoaddress-autocomplete .autoaddress-suggestion.autoaddress-searchTerm:hover:after {
+  background: url(../images/auto-search-icon-hover.png) right 2px no-repeat;
+  padding-right: 20px
+}
+
+.autoaddress-control .autoaddress-autocomplete .autoaddress-suggestion.autoaddress-defaultSearch {
+  color: #333;
+  background: #fff
+}
+
+.autoaddress-control .autoaddress-autocomplete .autoaddress-suggestion.autoaddress-defaultSearch.selected, .autoaddress-control .autoaddress-autocomplete .autoaddress-suggestion.autoaddress-defaultSearch:hover {
+  background: #4773a3;
+  color: #fff
+}
+
+.autoaddress-control .autoaddress-autocomplete .autoaddress-suggestion.autoaddress-defaultSearch.autoaddress-searchTerm {
+  background: #e6edf5;
+  color: #777c89;
+  text-transform: none
+}
+
+.autoaddress-control .autoaddress-autocomplete .autoaddress-suggestion.autoaddress-defaultSearch.autoaddress-searchTerm:hover {
+  background: #4773a3;
+  color: #fff
+}
+
+.autoaddress-control .autoaddress-autocomplete .autoaddress-suggestion.autoaddress-defaultSearch.autoaddress-searchTerm:after {
+  color: #888
+}
+
+.autoaddress-control .autoaddress-autocomplete .autoaddress-suggestion.autoaddress-defaultSearch.autoaddress-searchTerm:hover:after {
+  color: #fff
+}
+
+.autoaddress-control .autoaddress-autocomplete .autoaddress-suggestion.autoaddress-search {
+  color: #333;
+  background: #fff
+}
+
+.autoaddress-control .autoaddress-autocomplete .autoaddress-suggestion.autoaddress-search.selected, .autoaddress-control .autoaddress-autocomplete .autoaddress-suggestion.autoaddress-search:hover {
+  background: #e6edf5;
+  color: #333
+}
+
+.autoaddress-control .autoaddress-autocomplete .autoaddress-suggestion.autoaddress-search.autoaddress-searchTerm {
+  background: #e6edf5;
+  color: #777c89;
+  text-transform: none
+}
+
+.autoaddress-control .autoaddress-autocomplete .autoaddress-suggestion.autoaddress-search.autoaddress-searchTerm:hover {
+  background: #e6edf5;
+  color: #777c89
+}
+
+.autoaddress-control .autoaddress-autocomplete .autoaddress-suggestion.autoaddress-search.autoaddress-searchTerm:after {
+  color: #888
+}
+
+.autoaddress-control .autoaddress-autocomplete .autoaddress-suggestion.autoaddress-search.autoaddress-searchTerm:hover:after {
+  color: #fff
+}
+
+.autoaddress-control .autoaddress-options-container .autoaddress-options-list {
+  overflow-y: auto;
+  max-height: 265px;
+  margin-top: 15px;
+  border: 1px solid #CCC;
+  border-radius: 5px;
+  position: relative
+}
+
+.autoaddress-control .autoaddress-options-container .autoaddress-options-list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: #FFF
+}
+
+.autoaddress-control .autoaddress-options-container .autoaddress-options-list li a {
+  white-space: normal;
+  border-bottom: 1px solid #CCC;
+  color: #333;
+  text-decoration: none;
+  display: block;
+  clear: both;
+  font-weight: 400;
+  line-height: 1.52857;
+  font-size: 14px;
+  padding: 10px 15px;
+  cursor: pointer
+}
+
+.autoaddress-control .autoaddress-options-container .autoaddress-options-list li:last-child a {
+  border-bottom: none
+}
+
+.autoaddress-control .autoaddress-options-container .autoaddress-options-list li a:hover, .autoaddress-control .autoaddress-options-container .autoaddress-options-list li.active a {
+  background: #4773a3;
+  color: #fff
+}
+
+.autoaddress-control .autoaddress-options-container .autoaddress-options-list li > a em {
+  font-size: 14px
+}
+
+.autoaddress-control .ma-arrow {
+  background: url(../images/multi-address-arrow.png) no-repeat;
+  width: 11px;
+  height: 17px;
+  margin-top: 3px;
+  padding-left: 3px
+}
+
+.autoaddress-control .autoaddress-options-list li a:focus .ma-arrow, .autoaddress-control .autoaddress-options-list li a:hover .ma-arrow, .autoaddress-options-list li.active .ma-arrow {
+  background: url(../images/multi-address-arrow-select.png) no-repeat
+}
+
+.autoaddress-control .ma-list {
+  background: url(../images/MultiAddress-List.png) no-repeat;
+  width: 18px;
+  height: 12px;
+  margin-top: 5px;
+  padding-left: 5px
+}
+
+.autoaddress-control .autoaddress-options-list li a:hover .ma-list, .autoaddress-options-list li a:focus .ma-list, .autoaddress-options-list li.active .ma-list {
+  background: url(../images/MultiAddress-List-select.png) no-repeat
+}
+
+.autoaddress-control .autoaddress-options-container .autoaddress-options-tabs {
+  margin-top: 15px;
+  display: table;
+  content: " "
+}
+
+.autoaddress-control .autoaddress-options-container .autoaddress-options-tabs li a {
+  position: relative;
+  display: block;
+  border-radius: 4px 4px 0 0;
+  margin-right: 2px;
+  line-height: 1.62857;
+  border-width: 2px 1px 1px;
+  border-style: solid;
+  border-color: #ccc;
+  font-weight: 400;
+  padding: 5px 20px 0 41px;
+  color: #5D6162;
+  text-decoration: none;
+  background: url(../images/address-tab.png) 15px 8px no-repeat #ebebeb
+}
+
+.autoaddress-control .autoaddress-options-container .autoaddress-options-list.autoaddress-options-tab-pane {
+  display: none;
+  visibility: hidden;
+  border-top-left-radius: 0;
+  margin-top: -1px;
+  z-index: 1
+}
+
+.autoaddress-control .autoaddress-options-container .autoaddress-options-tab-pane.selected {
+  display: block;
+  visibility: visible
+}
+
+.autoaddress-control .autoaddress-options-container .autoaddress-options-tabs {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+  position: relative;
+  border: 0 !important
+}
+
+.autoaddress-control .autoaddress-options-container .autoaddress-options-tabs li {
+  float: left;
+  position: relative;
+  display: block
+}
+
+.autoaddress-control .autoaddress-options-container .autoaddress-options-tabs li a.selected {
+  border-top: 2px solid #0893d2;
+  background: url(../images/address-tab-selected.png) 15px 8px no-repeat #fff;
+  color: #0893d2;
+  z-index: 2;
+  border-bottom: 1px solid #FFF
+}
+
+.autoaddress-control .autoaddress-options-container .autoaddress-options-tabs li + li a {
+  background: url(../images/Commercial-tab.png) 15px 6px no-repeat #ebebeb
+}
+
+.autoaddress-control .autoaddress-options-container .autoaddress-options-tabs li + li a.selected {
+  background: url(../images/Commercial-tab-selected.png) 15px 6px no-repeat #fff
+}
+
+.autoaddress-control .autoaddress-options-tab-pane ul {
+  margin: 0;
+  padding: 0
+}
+
+.autoaddress-control a.autoaddress-back-link {
+  background: url(../images/back.png) 10px 9px no-repeat #f0f0f0;
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 7px 12px 7px 25px;
+  border: 1px solid #b1b2b2;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #333;
+  webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, .175);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .175);
+  display: inline-block;
+  margin-top: 10px;
+  line-height: normal
+}
+
+.autoaddress-control .autoaddress-back-link img {
+  margin: 0 10px -3px 0
+}
+
+.autoaddress-control .autoaddress-circle-spinner {
+  position: absolute;
+  top: 44%;
+  left: 42%;
+  transform: translate(-19%, -40%)
+}
+
+.autoaddress-control .autoaddress-loader {
+  display: block;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #fff;
+  outline: 0;
+  -webkit-animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite;
+  font-size: 0;
+  line-height: 0
+}
+
+.autoaddress-control .hover {
+  position: absolute;
+  z-index: 9999;
+  background-color: #f6f6f6;
+  border: 1px solid #ccc;
+  width: 95.6%;
+  padding: 2%
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0);
+    -ms-transform: rotate(0);
+    transform: rotate(0)
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg)
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0);
+    -ms-transform: rotate(0);
+    transform: rotate(0)
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg)
+  }
+}
+
+@media (max-width: 767px) {
+  .autoaddress-control .autoaddress-button {
+    font-size: 18px
+  }
+}
+
+@media (max-width: 480px) {
+  .autoaddress-control .autoaddress-button {
+    font-size: 16px;
+    width: 25%
+  }
+
+  .autoaddress-control .autoaddress-text-box {
+    width: 75%
+  }
+
+  .autoaddress-control {
+    font-size: 14px
+  }
+
+  .autoaddress-control .autoaddress-circle-spinner {
+    top: 44%;
+    left: 37%
+  }
+}
