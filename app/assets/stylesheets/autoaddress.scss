@@ -54,7 +54,6 @@ $aa-control-hover-color:        #f6f6f6;
 
 .autoaddress-control > .autoaddress-text-box {
   outline: 0;
-  border: 0;
   border: 1px solid $aa-text-box-border-color;
   border-radius: 3px 0 0 3px;
   line-height: normal;
@@ -410,7 +409,7 @@ $aa-control-hover-color:        #f6f6f6;
   border-radius: 5px;
   text-decoration: none;
   color: $aa-dark-gray;
-  webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, .175);
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, .175);
   box-shadow: 0 2px 5px rgba(0, 0, 0, .175);
   display: inline-block;
   margin-top: 10px;
