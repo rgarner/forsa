@@ -1,10 +1,9 @@
-@import 'color';
+@import 'settings';
 
 $aa-border-and-box-shadow:  #ccc;
 $aa-medium-gray:            #777c89;
 $aa-dark-gray:              #333;
 $aa-search-button-color:    $forsa-aqua;
-$aa-white:                  #fff;
 $aa-text-box-border-color:  #dedede;
 $aa-text-box-color:         #666;
 $aa-hover-background-color: lighten($forsa-aqua, 45%);
@@ -27,10 +26,12 @@ $aa-back-link-background-color: #f0f0f0;
 $aa-back-link-border-color:     #b1b2b2;
 $aa-control-hover-color:        #f6f6f6;
 
+$aa-text-box-height: ($input-font-size + ($form-spacing * 1.5) - rem-calc(1));
+
 .autoaddress-control {
   max-width: 650px;
   margin: 10px 0;
-  font-size: 15px;
+  font-size: $input-font-size;
   color: $aa-medium-gray;
   font-family: inherit;
   position: relative;
@@ -53,41 +54,23 @@ $aa-control-hover-color:        #f6f6f6;
 }
 
 .autoaddress-control > .autoaddress-text-box {
-  outline: 0;
   border: 1px solid $aa-text-box-border-color;
-  border-radius: 3px 0 0 3px;
-  line-height: normal;
-  line-height: 52px \9;
-  height: 55px;
+  border-radius: $input-radius 0 0 $input-radius;
+  height: $aa-text-box-height;
   width: 80%;
-  box-sizing: border-box;
-  background: $aa-white;
-  font-size: 16px;
-  color: $aa-text-box-color;
   margin: 0;
-  padding: 0 10px;
   float: left
 }
 
 .autoaddress-control > .autoaddress-button {
   background-color: $aa-search-button-color;
   border: 1px solid $aa-search-button-color;
-  color: $aa-white;
-  cursor: pointer;
-  display: inline-block;
-  text-decoration: none;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: normal;
-  height: 55px;
-  text-align: center;
-  vertical-align: middle;
-  border-radius: 0 4px 4px 0;
+  color: $white;
+  height: $aa-text-box-height;
+  border-radius: 0 $input-radius $input-radius 0;
   width: 20%;
-  margin: 0;
   clear: right;
   position: relative;
-  box-sizing: border-box
 }
 
 .autoaddress-button:focus, .autoaddress-control .autoaddress-button:hover {
@@ -208,12 +191,12 @@ $aa-control-hover-color:        #f6f6f6;
 
 .autoaddress-control .autoaddress-autocomplete .autoaddress-suggestion.autoaddress-defaultSearch {
   color: $aa-dark-gray;
-  background: $aa-white
+  background: $white
 }
 
 .autoaddress-control .autoaddress-autocomplete .autoaddress-suggestion.autoaddress-defaultSearch.selected, .autoaddress-control .autoaddress-autocomplete .autoaddress-suggestion.autoaddress-defaultSearch:hover {
   background: $aa-option-background-color;
-  color: $aa-white
+  color: $white
 }
 
 .autoaddress-control .autoaddress-autocomplete .autoaddress-suggestion.autoaddress-defaultSearch.autoaddress-searchTerm {
@@ -224,7 +207,7 @@ $aa-control-hover-color:        #f6f6f6;
 
 .autoaddress-control .autoaddress-autocomplete .autoaddress-suggestion.autoaddress-defaultSearch.autoaddress-searchTerm:hover {
   background: $aa-option-background-color;
-  color: $aa-white
+  color: $white
 }
 
 .autoaddress-control .autoaddress-autocomplete .autoaddress-suggestion.autoaddress-defaultSearch.autoaddress-searchTerm:after {
@@ -232,12 +215,12 @@ $aa-control-hover-color:        #f6f6f6;
 }
 
 .autoaddress-control .autoaddress-autocomplete .autoaddress-suggestion.autoaddress-defaultSearch.autoaddress-searchTerm:hover:after {
-  color: $aa-white
+  color: $white
 }
 
 .autoaddress-control .autoaddress-autocomplete .autoaddress-suggestion.autoaddress-search {
   color: $aa-dark-gray;
-  background: $aa-white
+  background: $white
 }
 
 .autoaddress-control .autoaddress-autocomplete .autoaddress-suggestion.autoaddress-search.selected, .autoaddress-control .autoaddress-autocomplete .autoaddress-suggestion.autoaddress-search:hover {
@@ -261,7 +244,7 @@ $aa-control-hover-color:        #f6f6f6;
 }
 
 .autoaddress-control .autoaddress-autocomplete .autoaddress-suggestion.autoaddress-search.autoaddress-searchTerm:hover:after {
-  color: $aa-white
+  color: $white
 }
 
 .autoaddress-control .autoaddress-options-container .autoaddress-options-list {
@@ -277,7 +260,7 @@ $aa-control-hover-color:        #f6f6f6;
   list-style: none;
   margin: 0;
   padding: 0;
-  background: $aa-white
+  background: $white
 }
 
 .autoaddress-control .autoaddress-options-container .autoaddress-options-list li a {
@@ -300,7 +283,7 @@ $aa-control-hover-color:        #f6f6f6;
 
 .autoaddress-control .autoaddress-options-container .autoaddress-options-list li a:hover, .autoaddress-control .autoaddress-options-container .autoaddress-options-list li.active a {
   background: $aa-option-background-color;
-  color: $aa-white
+  color: $white
 }
 
 .autoaddress-control .autoaddress-options-container .autoaddress-options-list li > a em {
@@ -382,10 +365,10 @@ $aa-control-hover-color:        #f6f6f6;
 
 .autoaddress-control .autoaddress-options-container .autoaddress-options-tabs li a.selected {
   border-top: 2px solid $aa-selected-tab-color;
-  background: asset-url("aa/address-tab-selected.png") 15px 8px no-repeat $aa-white;
+  background: asset-url("aa/address-tab-selected.png") 15px 8px no-repeat $white;
   color: $aa-selected-tab-color;
   z-index: 2;
-  border-bottom: 1px solid $aa-white
+  border-bottom: 1px solid $white
 }
 
 .autoaddress-control .autoaddress-options-container .autoaddress-options-tabs li + li a {
@@ -393,7 +376,7 @@ $aa-control-hover-color:        #f6f6f6;
 }
 
 .autoaddress-control .autoaddress-options-container .autoaddress-options-tabs li + li a.selected {
-  background: asset-url("aa/Commercial-tab-selected.png") 15px 6px no-repeat $aa-white
+  background: asset-url("aa/Commercial-tab-selected.png") 15px 6px no-repeat $white
 }
 
 .autoaddress-control .autoaddress-options-tab-pane ul {
@@ -434,7 +417,7 @@ $aa-control-hover-color:        #f6f6f6;
   height: 25px;
   border-radius: 50%;
   border: 3px solid transparent;
-  border-top-color: $aa-white;
+  border-top-color: $white;
   outline: 0;
   -webkit-animation: spin 1s linear infinite;
   animation: spin 1s linear infinite;
