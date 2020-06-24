@@ -40,7 +40,7 @@ class MembershipApplication < ApplicationRecord
     write_attribute(:pay_rate, SubscriptionRate.sanitize_currency(value))
   end
 
-  PAY_UNIT = %w[hour week month year].freeze
+  PAY_UNIT = %w[hour week fortnight month year].freeze
   validates :pay_unit, inclusion: { in: PAY_UNIT }, if: -> { reached_step?('your-subscription-rate') }
   validates :hours_per_week, numericality: true,
     if: -> { reached_step?('your-subscription-rate') && pay_unit == 'hour' }
