@@ -9,8 +9,8 @@
       <%= f.text_field :pay_rate %>
     </span>
 
-    <fieldset class="radio-group-horizontal">
-      <label class="side-note">Every:</label>
+    <label class="side-note">Every:</label>
+    <fieldset class="radio-group-horizontal pay-unit">
       <div>
         <%= f.collection_radio_buttons :pay_unit, MembershipApplication::PAY_UNIT, :to_s, :capitalize %>
       </div>
