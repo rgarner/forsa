@@ -39,6 +39,7 @@ class SubscriptionRate
     case pay_unit
     when 'year' then pay_rate
     when 'month' then pay_rate * DEEMED_MONTHS
+    when 'fortnight' then pay_rate * DEEMED_WEEKS / 2
     when 'week' then pay_rate * DEEMED_WEEKS
     when 'hour' then pay_rate * hours_per_week * DEEMED_WEEKS
     else

@@ -55,6 +55,15 @@ RSpec.describe SubscriptionRate do
       end
     end
 
+    context 'fortnightly pay' do
+      let(:pay_unit) { 'fortnight' }
+      let(:pay_rate) { '700' }
+
+      it 'calculates the rate as fixed 0.8% of an assumed 52-week annual salary' do
+        expect(rate.monthly_estimate).to eql('12.13')
+      end
+    end
+
     context 'weekly pay' do
       let(:pay_unit) { 'week' }
       let(:pay_rate) { '350' }
