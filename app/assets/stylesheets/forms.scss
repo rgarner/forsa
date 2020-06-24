@@ -94,7 +94,10 @@ input {
       text-align: center;
       width: 20%;
       padding: 0.5rem 0.1rem;
-      font-size: 80%;
+
+      @include breakpoint(small only) {
+        font-size: 80%;
+      }
       font-family: $body-font-family;
       border-right: 1px solid $forsa-aqua;
     }
