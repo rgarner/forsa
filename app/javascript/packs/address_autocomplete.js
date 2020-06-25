@@ -47,13 +47,10 @@ class AddressAutocomplete {
 
     const radioStr = `
       <fieldset class="radio-group-country">
-        <div class="country">
-          <input type="radio" value="ie" name="country" id="country_ireland" checked="checked">
-          <label for="country_ireland">Ireland</label>
-        </div><div class="country">
-          <input type="radio" value="ni" name="country" id="country_ni">
-          <label for="country_ni">Northern Ireland</label>
-        </div>
+        <input type="radio" value="ie" name="country" id="country_ireland" checked="checked">
+        <label for="country_ireland">Ireland</label>
+        <input type="radio" value="ni" name="country" id="country_ni">
+        <label for="country_ni">Northern Ireland</label>
       </fieldset>    
     `
 

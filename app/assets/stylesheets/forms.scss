@@ -1,6 +1,7 @@
 @import 'settings';
 
 $forsa-button-label-font-size: 1.1rem;
+$country-tab-height: 1.9rem;
 
 .content {
   fieldset {
@@ -119,7 +120,7 @@ input {
   }
 }
 
-.radio-group-country {
+.content .radio-group-country {
   width: 55%;
   margin-bottom: 0;
   border: 1px solid $forsa-aqua;
@@ -128,27 +129,25 @@ input {
   border-bottom-left-radius: $form-button-radius;
   margin-left: $form-spacing / 4;
 
-  .country {
-    display: inline-block;
-    width: 50%;
-  }
-
   input[type=radio] + label {
     color: $white;
+    width: 50%;
+    float: left;
+
     background-color: lighten($forsa-aqua, 10%);
 
     font-size: 75%;
     margin: 0;
     text-align: center;
     padding: 0.25rem 0.1rem;
+    height: $country-tab-height;
 
     font-family: $body-font-family;
-    border-right: 1px solid $forsa-aqua;
-    width: 100%;
   }
 
   input[type=radio] + label:last-child {
     border-right: 0;
+    border-bottom-right-radius: $form-button-radius / 1.5;
   }
 
   input[type=radio] {
@@ -161,6 +160,10 @@ input {
     background-color: $forsa-aqua;
     font-family: $body-font-family-bold;
   }
+}
+
+.autoaddress-control .autoaddress-autocomplete {
+  margin-top: -($country-tab-height) - 0.1rem;
 }
 
 .radio-group-vertical {
