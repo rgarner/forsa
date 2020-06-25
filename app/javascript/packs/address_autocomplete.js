@@ -46,17 +46,14 @@ class AddressAutocomplete {
     }
 
     const radioStr = `
-      <fieldset class="radio-group-vertical">
-        <div>
-          <label for="country_ireland">
-            <input type="radio" value="ie" name="country" id="country_ireland" checked="checked">
-            Ireland
-          </label>
-          <label for="country_ni">
-            <input type="radio" value="ni" name="country" id="country_ni">
-            Northern Ireland
-          </label>
-        </div>  
+      <fieldset class="radio-group-country">
+        <div class="country">
+          <input type="radio" value="ie" name="country" id="country_ireland" checked="checked">
+          <label for="country_ireland">Ireland</label>
+        </div><div class="country">
+          <input type="radio" value="ni" name="country" id="country_ni">
+          <label for="country_ni">Northern Ireland</label>
+        </div>
       </fieldset>    
     `
 
@@ -82,13 +79,13 @@ class AddressAutocomplete {
     root.setAttribute('class', 'auto-address-root')
 
     this.textarea.parentNode.insertBefore(root, this.textarea);
-    this.textarea.parentNode.insertBefore(this.manualLink, this.textarea);
-    this.textarea.parentNode.insertBefore(this.countryRadioGroup, root);
-
-    $(this.countryRadioGroup).find('input').change(() => this.countryChanged())
 
     this._autoAddressRoot = root
     return root
+  }
+
+  get autoAddressButton() {
+    return $(this.autoAddressRoot).find('.autoaddress-button').get(0)
   }
 
   attachAutoAddressAutocomplete() {
@@ -101,6 +98,14 @@ class AddressAutocomplete {
 
       onSearchCompleted: (data) => this.placeChanged(data),
     })
+
+    this.textarea.parentNode.insertBefore(this.manualLink, this.textarea);
+    this.autoAddressButton.parentNode.insertBefore(
+      this.countryRadioGroup,
+      this.autoAddressButton.nextSibling
+    );
+
+    $(this.countryRadioGroup).find('input').change(() => this.countryChanged())
 
     this.setVisibilitiesFromValue();
   }

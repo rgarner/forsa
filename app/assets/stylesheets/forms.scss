@@ -119,6 +119,50 @@ input {
   }
 }
 
+.radio-group-country {
+  width: 55%;
+  margin-bottom: 0;
+  border: 1px solid $forsa-aqua;
+  border-top: 0;
+  border-bottom-right-radius: $form-button-radius;
+  border-bottom-left-radius: $form-button-radius;
+  margin-left: $form-spacing / 4;
+
+  .country {
+    display: inline-block;
+    width: 50%;
+  }
+
+  input[type=radio] + label {
+    color: $white;
+    background-color: lighten($forsa-aqua, 10%);
+
+    font-size: 75%;
+    margin: 0;
+    text-align: center;
+    padding: 0.25rem 0.1rem;
+
+    font-family: $body-font-family;
+    border-right: 1px solid $forsa-aqua;
+    width: 100%;
+  }
+
+  input[type=radio] + label:last-child {
+    border-right: 0;
+  }
+
+  input[type=radio] {
+    opacity: 0;
+    position: fixed;
+    width: 0;
+  }
+
+  input[type=radio]:checked + label {
+    background-color: $forsa-aqua;
+    font-family: $body-font-family-bold;
+  }
+}
+
 .radio-group-vertical {
   border-left: 8px solid $medium-gray;
   label {
