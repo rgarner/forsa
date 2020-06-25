@@ -10,10 +10,6 @@ $country-tab-height: 1.9rem;
     &.fieldset-address {
       margin-bottom: 2rem;
 
-      .pac-target-input {
-        margin-bottom: 0;
-      }
-
       textarea {
         margin-top: $global-margin;
       }
@@ -74,7 +70,7 @@ input {
 }
 
 .field_with_errors {
-  input:not(.pac-target-input),
+  input,
   textarea,
   label.block-label {
     border-color: $alert-color;
