@@ -40,6 +40,39 @@ class AddressAutocomplete {
     return this._input
   }
 
+  get countryRadioGroup() {
+    if(this._countryRadioGroup) {
+      return this._countryRadioGroup
+    }
+
+    const radioStr = `
+      <fieldset class="radio-group-vertical">
+        <div>
+          <label for="country_ireland">
+            <input type="radio" value="ie" name="country" id="country_ireland" checked="checked">
+            Ireland
+          </label>
+          <label for="country_ni">
+            <input type="radio" value="ni" name="country" id="country_ni">
+            Northern Ireland
+          </label>
+        </div>  
+      </fieldset>    
+    `
+
+    const dom = new DOMParser().parseFromString(radioStr, 'text/html')
+    this._countryRadioGroup = dom.body.firstElementChild;
+    return this._countryRadioGroup;
+  }
+
+  countryChanged() {
+    $(this.autoAddressRoot).AutoAddress('setCountry', this.countryValue)
+  }
+
+  get countryValue() {
+    return $(this.countryRadioGroup).find('input[name=country]:checked').val();
+  }
+
   get autoAddressRoot() {
     if(this._autoAddressRoot) {
       return this._autoAddressRoot
@@ -50,6 +83,9 @@ class AddressAutocomplete {
 
     this.textarea.parentNode.insertBefore(root, this.textarea);
     this.textarea.parentNode.insertBefore(this.manualLink, this.textarea);
+    this.textarea.parentNode.insertBefore(this.countryRadioGroup, root);
+
+    $(this.countryRadioGroup).find('input').change(() => this.countryChanged())
 
     this._autoAddressRoot = root
     return root
@@ -60,6 +96,7 @@ class AddressAutocomplete {
       key: process.env.AUTOADDRESS_KEY,
       vanityMode: true,
       addressProfile: "Demo5LineV2",
+      country: 'ie',
       optionsLimit: -1,
 
       onSearchCompleted: (data) => this.placeChanged(data),
